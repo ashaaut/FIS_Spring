@@ -7,7 +7,7 @@ public class Country {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
 	String code;
 	String name;
-	
+
 	public String getCode() {
 		return code;
 	}
@@ -24,15 +24,13 @@ public class Country {
 		this.name = name;
 	}
 
-	
-	
 	@Override
 	public String toString() {
 		return "Country [code=" + code + ", name=" + name + "]";
 	}
 
-	public Country(){
+	public Country() {
 		LOGGER.debug("Inside the country Constructor");
-		
+
 	}
 }
