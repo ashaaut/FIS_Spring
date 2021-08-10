@@ -1,5 +1,6 @@
 package com.fis.springlearn;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,8 @@ public class SpringLearnApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringLearnApplication.class, args);
 		displayDate();
-		displayCountry();
+//		displayCountry();
+		displayCountries();
 	}
 	static void displayDate()  {
 		LOGGER.info("START");
@@ -61,5 +63,12 @@ public class SpringLearnApplication {
 		LOGGER.debug("Country : {}", anotherCountry.toString());
 
 
+	}
+	static void displayCountries() {
+		LOGGER.info("START");
+		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
+		ArrayList<Country> countries=context.getBean("countryList",ArrayList.class);
+		LOGGER.debug("Countries: {}",countries);
+		LOGGER.info("END");
 	}
 }
