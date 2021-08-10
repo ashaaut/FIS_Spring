@@ -11,6 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean.Employee;
+import com.fis.springlearn.controller.EmployeeController;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +26,8 @@ public class SpringLearnApplication {
 		displayDate();
 //		displayCountry();
 //		displayCountries();
-		displayEmployee();
+//		displayEmployee();
+		getEmployeeController();
 	}
 	static void displayDate()  {
 		LOGGER.info("START");
@@ -79,6 +81,13 @@ public class SpringLearnApplication {
 		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
 		Employee employee=context.getBean("employee",Employee.class);
 		LOGGER.debug("Employee: {}",employee);
+		LOGGER.info("END");
+	}
+	static void getEmployeeController() {
+		LOGGER.info("START");
+		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		EmployeeController employeeController = context.getBean("employeeController", EmployeeController.class);
+		LOGGER.debug("EmployeeController : {}", employeeController);
 		LOGGER.info("END");
 	}
 }
